@@ -1,0 +1,38 @@
+Creating a web application that contains 2 main parts:
+
+Part I:
+
+A platform that contains a template for creating quiz files
+
+The template should contain following options:
+
+    1. Add a multiple-choice question to your quiz with 1 answer
+    2. Add a multiple-choice question to your quiz with 2 answers (multiple response)
+    3. True or False
+    4. Short answer
+    5. Fill in the blanks
+    6. Matching -- one part of the solution to the other (like a puzzle)
+    7. Voice file + input field (cat MultiMedia)
+    8. Image file + input field (cat MultiMedia)
+
+!!! TO DO: Consider how will the answers of the participants be evaluated:
+        option 1: the quiz moderator should do that
+        option 2: the answers should be evaluated by the back-end
+
+
+Part II:
+
+!!! OPTION #1: To make it a 1 participant only experience --> you open a quiz someone else created
+!!! OPTION #2: Real-time game in which the quiz creator administrates the game for friends.
+!!! OPTION #3 (probably best):
+                    Moderator view: Presenting the quiz (question by question)
+                    Participants view: <title>Question name</title> -> answer form + submit
+
+                    Moderator receives answers, evaluates them and sends them back to the users!! (how???)
+                    By evaluating and submitting - the moderator updates the current score of participants
+
+
+
+Platform for executing the quiz --> which should be started manually by the Quiz creator.
+
+An option to add participants by username of the participant.
