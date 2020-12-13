@@ -1,0 +1,13 @@
+IMPORTANT TASKS before coding:
+
+1. Information gathering - how to create varios quiz types (django + python)
+    to do up until 13.11.2020 (Friday)
+2. Learn and analyze the data gathered - make a base algorithm of the back-end logic implementation
+    #quicknotes: front-end is unnecessary at this point
+    to do up until 15.11.2020 (Sunday)
+3. First create the quiz building platform:
+        a. Create DjangoForms dependant on the type of the form (multiple-choice, multiple response etc.)
+        b. ...
+    to do up until 20.11.2020 (Friday)
+4. Make further plans in this list:
+    to do up until 21.11.2020 (Saturday)
