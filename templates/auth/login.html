@@ -1,0 +1,16 @@
+{% extends 'shared/site.html' %}
+{% load bootstrap4 %}
+{% block site_content %}
+    <h1 class="text-center text-light">Login</h1>
+    <div class="container text-light">
+        <form method="POST" action="{% url 'login user' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in login_form %}
+                {% bootstrap_field field %}
+            {% endfor %}
+            {% buttons %}
+                <button class="btn btn-primary">Submit</button>
+            {% endbuttons %}
+        </form>
+    </div>
+{% endblock %}
