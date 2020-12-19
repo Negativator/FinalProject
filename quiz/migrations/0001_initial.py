@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Quiz',
+            name='quiz',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('created', models.DateField(auto_created=True)),
@@ -31,28 +31,28 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='QuestionMC',
             fields=[
-                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='Quiz.question')),
+                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='quiz.question')),
                 ('option1', models.CharField(max_length=100)),
                 ('option2', models.CharField(max_length=100)),
                 ('option3', models.CharField(max_length=100)),
                 ('option4', models.CharField(max_length=100)),
             ],
-            bases=('Quiz.question',),
+            bases=('quiz.question',),
         ),
         migrations.CreateModel(
             name='QuestionSA',
             fields=[
-                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='Quiz.question')),
+                ('question_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='quiz.question')),
                 ('answer', models.CharField(max_length=500)),
             ],
-            bases=('Quiz.question',),
+            bases=('quiz.question',),
         ),
         migrations.CreateModel(
             name='Section',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=100)),
-                ('rel_to_quiz', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='Quiz.quiz')),
+                ('rel_to_quiz', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='quiz.quiz')),
             ],
         ),
     ]
