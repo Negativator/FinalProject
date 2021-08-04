@@ -1,11 +1,11 @@
 {% extends 'shared/site.html' %}
 {% load bootstrap4 %}
 {% block site_content %}
-    <h1 class="text-center text-light">Login</h1>
+    <h1 class="text-center text-light">Create quiz, {{ user.username }}</h1>
     <div class="container text-light">
-        <form method="POST" action="{% url 'login user' %}">
+        <form method="POST" action="{% url 'create quiz' %}">
             {% csrf_token %}
-            {% for field in login_form %}
+            {% for field in quiz_form %}
                 {% bootstrap_field field %}
             {% endfor %}
             {% buttons %}

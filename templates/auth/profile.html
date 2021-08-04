@@ -1,0 +1,29 @@
+{% extends 'shared/site.html' %}
+{% load bootstrap4 %}
+{% block site_content %}
+    <h1 class="text-center text-light">Your profile {{ user.username }}!</h1>
+    <div class="container text-light">
+        {% if created_quizzes %}
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">Quiz Title</th>
+                        <th scope="col">Quiz Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for quiz in created_quizzes %}
+                        <tr>
+                            <th scope="row">{{ quiz.form_title }}</th>
+                            <td>{{ quiz.form_description }}</td>
+                        </tr>
+{#                        <ul class="list-group list-group-horizontal-xl bg-dark text-light">#}
+{#                            <li class="list-group-item bg-dark text-light">{{ quiz.form_title }}</li>#}
+{#                            <li class="list-group-item bg-dark text-light">{{ quiz.form_description }}</li>#}
+{#                        </ul>#}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+{% endblock %}

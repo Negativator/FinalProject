@@ -24,22 +24,24 @@
                 <a class="nav-link" href="#">Quizzes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Create Quiz</a>
+                <a class="nav-link" href="{% url 'create quiz' %}">Create Quiz</a>
             </li>
         </ul>
 
         <ul class="nav justify-content-end">
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link text-light"  href="{% url 'logout user' %}">Hello, {{ user.username }}!
-                        Logout</a>
+                    <a class="nav-link text-light" href="{% url 'user profile' %}">Hello, {{ user.username }}!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'logout user' %}">Logout</a>
                 </li>
             {% else %}
                 <li class="nav-item">
-                    <a class="nav-link text-light"  href="{% url 'login user' %}">Login</a>
+                    <a class="nav-link text-light" href="{% url 'login user' %}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light"  href="{% url 'register user' %}">Register</a>
+                    <a class="nav-link text-light" href="{% url 'register user' %}">Register</a>
                 </li>
             {% endif %}
         </ul>
@@ -47,7 +49,6 @@
 </nav>
 <div class="container-fluid">
     <div class="bg-dark">
-        <h1 class="text-light">Chushki s bobec!</h1>
         {% block site_content %}
         {% endblock %}
     </div>

@@ -1,9 +1,12 @@
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.db import transaction
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from python_auth.forms import RegisterForm, ProfileForm, LoginForm
+from python_auth.models import UserProfile
+from quiz.models import Quiz
 
 
 @transaction.atomic
@@ -25,8 +28,8 @@ def register_user(request):
 
             return redirect('landing')
         context = {
-            'user_form': RegisterForm(),
-            'profile_form': ProfileForm(),
+            'user_form': user_form,
+            'profile_form': profile_form,
         }
         return render(request, 'auth/register.html', context)
 
@@ -43,7 +46,8 @@ def login_user(request):
         if login_form.is_valid():
             username = login_form.cleaned_data['username']
             password = login_form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
+            user = authenticate(username=username,
+                                password=password)
             if user:
                 login(request, user)
                 return redirect('landing')
@@ -54,6 +58,18 @@ def login_user(request):
         return render(request, 'auth/login.html', context)
 
 
+@login_required
 def logout_user(request):
     logout(request)
     return redirect('landing')
+
+@login_required
+def profile(request):
+   user = request.user
+   profile = UserProfile.objects.get(user=user.id)
+   context = {
+       'user': user,
+       'profile': profile,
+       'created_quizzes': Quiz.objects.filter(user=user),
+   }
+   return render(request, 'auth/profile.html', context)

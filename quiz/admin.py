@@ -1,9 +1,6 @@
 from django.contrib import admin
-from .models import Quiz, Section, Question, QuestionMC, QuestionSA
+from .models import Quiz, Question
 
 # Register your models here.
 admin.site.register(Quiz)
-admin.site.register(Section)
 admin.site.register(Question)
-admin.site.register(QuestionMC)
-admin.site.register(QuestionSA)

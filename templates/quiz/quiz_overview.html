@@ -1,0 +1,40 @@
+{% extends 'shared/site.html' %}
+{% load bootstrap4 %}
+{% block site_content %}
+    <h1 class="text-center text-light">{{ quiz.form_title }}</h1>
+    <div class="container text-light">
+        <div class="float-left bg-dark text-light">
+            {% if questions %}
+                {% for ques,counter in zip %}
+                    <ul>
+                        <li class="list-group-item bg-dark">{{ counter }}. {{ ques.title }}</li>
+                        <li class="list-group-item bg-dark">A. {{ ques.c1 }}</li>
+                        <li class="list-group-item bg-dark">B. {{ ques.c2 }}</li>
+                        <li class="list-group-item bg-dark">C. {{ ques.c3 }}</li>
+                        <li class="list-group-item bg-dark">D. {{ ques.c4 }}</li>
+                        <li class="list-group-item bg-dark"><i>Correct answer:</i>{{ ques.correct_answer }}</li>
+                        <li class="list-group-item bg-dark">
+                            <button class="btn btn-primary"><a class="nav-link text-light" href="#">Delete question</a>
+                            </button>
+{#                            <button class="btn btn-primary pull-right"><a class="nav-link text-light"#}
+{#                                                                          href="{% url 'add question' quiz.id %}">Add#}
+{#                                question</a>#}
+{#                            </button>#}
+                        </li>
+                    </ul>
+                {% endfor %}
+            {% endif %}
+            {#                {% for question in question_counter %}#}
+            {#                    <ul>#}
+            {#                    {% for field in question_form %}#}
+            {#                        <li class="list-group-item bg-dark">{% bootstrap_field field %}</li>#}
+            {#                    {% endfor %}#}
+            {#                    </ul>#}
+            {#                {% endfor %}#}
+        </div>
+        {% buttons %}
+            <button class="btn btn-primary"><a class="nav-link text-light" href="{% url 'add question' quiz.id %}">Add
+                question</a></button>
+        {% endbuttons %}
+    </div>
+{% endblock %}

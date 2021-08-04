@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('common.urls')),
     path('auth/', include('python_auth.urls')),
+    path('quiz/', include('quiz.urls')),
     # path('quiz/', include('quiz.urls')),
 ]

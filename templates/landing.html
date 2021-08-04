@@ -1,3 +1,8 @@
 {% extends 'shared/site.html' %}
 {% block site_content %}
+    <div class="container text-light">
+        {% if user.is_authenticated %}
+            {{ user.profile.date_of_birth }}
+        {% endif %}
+    </div>
 {% endblock %}

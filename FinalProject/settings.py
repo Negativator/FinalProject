@@ -131,3 +131,5 @@ STATIC_ROOT = ''
 STATICFILES_DIRS = (
     join(BASE_DIR, 'static'),
 )
+
+LOGIN_URL = '/auth/login/'
